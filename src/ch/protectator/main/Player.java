@@ -1,12 +1,9 @@
-/**
- * 
- */
 package ch.protectator.main;
 
 /**
  * Represents a Player
  * 
- * @author Kewin
+ * @author Kewin Dousse
  */
 public class Player {
 

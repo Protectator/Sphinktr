@@ -1,8 +1,13 @@
 package ch.protectator.main;
 
+/**
+ * Represents a Battle between Players
+ * 
+ * @author Kewin Dousse
+ */
 public class Battle {
 	
-	private Army attacker;
-	private Army defender;
+	private Player attacker;
+	private Player defender;
 
 }

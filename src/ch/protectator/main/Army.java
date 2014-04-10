@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Represents a list of Units
  * 
- * @author Kewin
+ * @author Kewin Dousse
  */
 public class Army {
 
