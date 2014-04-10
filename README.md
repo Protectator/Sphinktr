@@ -1,4 +1,4 @@
 Sphinktr
 ========
 
-Sphinktr is an Ogame battle simulator and fleet optimizer
+Sphinktr is an [Ogame](http://ogame.gameforge.com "Ogame") battle simulator and fleet optimizer
