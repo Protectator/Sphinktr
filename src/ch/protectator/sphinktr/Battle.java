@@ -1,4 +1,4 @@
-package ch.protectator.main;
+package ch.protectator.sphinktr;
 
 /**
  * Represents a Battle between Players

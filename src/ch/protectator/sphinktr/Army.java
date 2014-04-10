@@ -1,4 +1,4 @@
-package ch.protectator.main;
+package ch.protectator.sphinktr;
 
 import java.util.ArrayList;
 
