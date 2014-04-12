@@ -150,18 +150,17 @@ public enum Ship implements Unit {
 	private final int structure;
 	private final int shield;
 	private final int attack;
-	private HashMap<Unit, Integer> rapidFire;
+	private HashMap<Unit, Integer> rapidfires;
 	
 	/**
 	 * @param name	Full name of the Ship
 	 */
-	Ship(String name, int structure, int shield, int attack, HashMap<Unit, Integer> rapidFire) {
+	Ship(String name, int structure, int shield, int attack, HashMap<Unit, Integer> rapidfire) {
 		this.name = name;
 		this.structure = structure;
 		this.shield = shield;
 		this.attack = attack;
-		this.rapidFire = rapidFire;
-		// TODO : Set the RapidFire
+		this.rapidfires = rapidfire;
 	}
 
 	/**
@@ -195,8 +194,11 @@ public enum Ship implements Unit {
 	/**
 	 * @return the rapidFire
 	 */
-	public HashMap<Unit, Integer> getRapidFire() {
-		return rapidFire;
+	public int getRapidfire(Unit unit) {
+		if (this.rapidfires.containsKey(unit)) {
+			return this.rapidfires.get(unit);
+		}
+		return 1;
 	}
 	
 }

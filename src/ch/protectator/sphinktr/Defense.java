@@ -1,7 +1,5 @@
 package ch.protectator.sphinktr;
 
-import java.util.HashMap;
-
 /**
  * Represents the different Defense buildings types
  * 
@@ -23,7 +21,6 @@ public enum Defense implements Unit {
 	private final int structure;
 	private final int shield;
 	private final int attack;
-	private HashMap<Unit, Integer> rapidFire;
 	
 	/**
 	 * @param name	Full name of the Defense building
@@ -33,9 +30,7 @@ public enum Defense implements Unit {
 		this.structure = structure;
 		this.shield = shield;
 		this.attack = attack;
-		// TODO : Set the RapidFire
 	}
-
 
 	/**
 	 * @return the name
@@ -68,8 +63,8 @@ public enum Defense implements Unit {
 	/**
 	 * @return the rapidFire
 	 */
-	public HashMap<Unit, Integer> getRapidFire() {
-		return rapidFire;
+	public int getRapidfire(Unit unit) {
+		return 1; // Defenses doesn't have Rapidfire against anyone.
 	}
 
 }

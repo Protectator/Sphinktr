@@ -1,7 +1,5 @@
 package ch.protectator.sphinktr;
 
-import java.util.HashMap;
-
 /**
  * Represents a fighting Unit
  * 
@@ -13,6 +11,6 @@ public interface Unit {
 	public int getStructure();
 	public int getAttack();
 	public int getShield();
-	public HashMap<Unit, Integer> getRapidFire();
+	public int getRapidfire(Unit unit);
 	
 }
