@@ -163,13 +163,6 @@ public enum Ship implements Unit {
 		this.rapidFire = rapidFire;
 		// TODO : Set the RapidFire
 	}
-	
-	/**
-	 * @param rapidFire the rapidFire to set
-	 */
-	public void setRapidFire(HashMap<Unit, Integer> rapidFire) {
-		this.rapidFire = rapidFire;
-	}
 
 	/**
 	 * @return the name

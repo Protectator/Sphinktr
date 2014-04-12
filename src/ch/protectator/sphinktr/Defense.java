@@ -8,16 +8,16 @@ import java.util.HashMap;
  * @author Kewin Dousse
  */
 public enum Defense implements Unit {
-	ROCKETLAUNCHER("Lanceur de missiles", 0, 0, 0),
-	LIGHTLASER("Artillerie laser légère", 0, 0, 0),
-	HEAVYLASER("Artillerie laser lourde", 0, 0, 0),
-	GAUSSCANNON("Canon de Gauss", 0, 0, 0),
-	IONCANNON("Artillerie à Ions", 0, 0, 0),
-	PLASMATURRET("Lanceur de plasma", 0, 0, 0),
-	SMALLSHIELDDOME("Petit bouclier", 0, 0, 0),
-	LARGESHIELDDOME("Grand bouclier", 0, 0, 0),
-	ANTIBALLISTICMISSILES("Missile d'interception", 0, 0, 0),
-	INTERPLANETARYMISSILES("Missiles interplanétaires", 0, 0, 0);
+	ROCKETLAUNCHER("Lanceur de missiles", 2000, 20, 80),
+	LIGHTLASER("Artillerie laser légère", 2000, 25, 100),
+	HEAVYLASER("Artillerie laser lourde", 8000, 100, 250),
+	GAUSSCANNON("Canon de Gauss", 35000, 200, 1100),
+	IONCANNON("Artillerie à Ions", 8000, 500, 150),
+	PLASMATURRET("Lanceur de plasma", 100000, 300, 3000),
+	SMALLSHIELDDOME("Petit bouclier", 20000, 2000, 1),
+	LARGESHIELDDOME("Grand bouclier", 100000, 10000, 1),
+	ANTIBALLISTICMISSILES("Missile d'interception", 8000, 1, 1),
+	INTERPLANETARYMISSILES("Missiles interplanétaires", 15000, 1, 12000);
 	
 	private final String name;
 	private final int structure;
@@ -35,14 +35,7 @@ public enum Defense implements Unit {
 		this.attack = attack;
 		// TODO : Set the RapidFire
 	}
-	
-	
-	/**
-	 * @param rapidFire the rapidFire to set
-	 */
-	public void setRapidFire(HashMap<Unit, Integer> rapidFire) {
-		this.rapidFire = rapidFire;
-	}
+
 
 	/**
 	 * @return the name
