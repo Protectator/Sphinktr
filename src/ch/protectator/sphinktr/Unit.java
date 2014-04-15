@@ -10,6 +10,7 @@ public class Unit implements Fighting, UnitType {
 	private UnitType type;
 	private int currentHp;
 	private int currentShield;
+	private int fullHp;
 	
 	/**
 	 * @param type	Type of the Unit. Cannot be changed later.
@@ -17,7 +18,8 @@ public class Unit implements Fighting, UnitType {
 	public Unit(UnitType type) {
 		super();
 		this.type = type;
-		this.currentHp = type.getStructure()/10;
+		this.fullHp = type.getStructure()/10;
+		this.currentHp = this.getFullHp();
 		this.currentShield = type.getShield();
 	}
 	
@@ -43,7 +45,12 @@ public class Unit implements Fighting, UnitType {
 	 * @param defender	Unit to attack.
 	 */
 	public void attackUnit(Unit defender) {
+		System.out.println(this + " attacks " + defender);
 		defender.takeDamage(this.getAttack());
+		System.out.println("Result :");
+		System.out.println(this);
+		System.out.println(defender);
+		System.out.println();
 	}
 	
 	/**
@@ -58,6 +65,31 @@ public class Unit implements Fighting, UnitType {
 				setCurrentShield(getCurrentShield() - amount);
 			}
 		}
+	}
+	
+	/**
+	 * Does the end of turn mecanisms
+	 */
+	public Unit endTurn() {
+		System.out.println("FIN DE TOUR POUR " + this);
+		if (getCurrentHp() == 0) {
+			return null;
+		}
+		float percentHp = (float)getCurrentHp() / (float)getFullHp();
+		if (percentHp < 0.7) {
+			if (Simulation.getInstance().randomizer.nextFloat() > percentHp) {
+				if (getCurrentHp() == 0 && getCurrentShield() == 0) {
+					return null;
+				}
+			}
+		}
+		this.setCurrentShield(this.type.getShield());
+		return this;
+	}
+	
+	@Override
+	public String toString() {
+		return this.getName() + " ( " + this.getCurrentShield() + "/"+ this.getShield() +" SH | " + this.getCurrentHp() + "/" + this.getFullHp() + " HP )";
 	}
 	
 	/**
@@ -77,6 +109,13 @@ public class Unit implements Fighting, UnitType {
 	@Override
 	public int getCurrentHp() {
 		return currentHp;
+	}
+
+	/**
+	 * @return the fullHp
+	 */
+	public int getFullHp() {
+		return fullHp;
 	}
 
 	@Override

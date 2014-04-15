@@ -8,5 +8,19 @@ package ch.protectator.sphinktr;
 public class Player {
 
 	private Army army;
+
+	/**
+	 * @param army
+	 */
+	public Player(Army army) {
+		this.army = army;
+	}
+
+	/**
+	 * @return the army
+	 */
+	public Army getArmy() {
+		return army;
+	}
 	
 }

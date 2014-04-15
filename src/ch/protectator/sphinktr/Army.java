@@ -24,7 +24,9 @@ public class Army {
 	public Unit getRandomUnit() {
 		return units.get(Simulation.getInstance().randomizer.nextInt(this.units.size()));
 	}
-	
-	
+
+	public Army(ArrayList<Unit> units) {
+		this.units = units;
+	}
 	
 }
