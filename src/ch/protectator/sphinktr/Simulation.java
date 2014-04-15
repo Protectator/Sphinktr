@@ -1,11 +1,15 @@
 package ch.protectator.sphinktr;
 
+import java.util.Random;
+
 /**
  * Represents a set of Battles
  * 
  * @author Kewin Dousse
  */
 public class Simulation {
+	
+	public Random randomizer;
 	
 	/* Singleton */
 	private Simulation(){} // 
