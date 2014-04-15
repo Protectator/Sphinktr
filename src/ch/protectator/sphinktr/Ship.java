@@ -9,7 +9,7 @@ import java.util.HashMap;
  */
 @SuppressWarnings("serial")
 public enum Ship implements UnitType {
-	LIGHTFIGHTER("Chasseur léger", 4000, 10, 50,
+	LIGHTFIGHTER("Chasseur lÃ©ger", 4000, 10, 50,
 			new HashMap<UnitType, Integer>() {{
 			    put(Ship.ESPIONAGEPROBE, 5);
 			    put(Ship.SOLARSATELLITE, 5);

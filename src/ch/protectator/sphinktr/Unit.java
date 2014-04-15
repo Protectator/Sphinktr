@@ -11,6 +11,7 @@ public class Unit implements Fighting, UnitType {
 	private int currentHp;
 	private int currentShield;
 	private int fullHp;
+	private String name;
 	
 	/**
 	 * @param type	Type of the Unit. Cannot be changed later.
@@ -21,6 +22,18 @@ public class Unit implements Fighting, UnitType {
 		this.fullHp = type.getStructure()/10;
 		this.currentHp = this.getFullHp();
 		this.currentShield = type.getShield();
+	}
+	
+	/**
+	 * @param type	Type of the Unit. Cannot be changed later.
+	 */
+	public Unit(UnitType type, String name) {
+		super();
+		this.type = type;
+		this.fullHp = type.getStructure()/10;
+		this.currentHp = this.getFullHp();
+		this.currentShield = type.getShield();
+		this.name = name;
 	}
 	
 	/**
@@ -47,10 +60,6 @@ public class Unit implements Fighting, UnitType {
 	public void attackUnit(Unit defender) {
 		System.out.println(this + " attacks " + defender);
 		defender.takeDamage(this.getAttack());
-		System.out.println("Result :");
-		System.out.println(this);
-		System.out.println(defender);
-		System.out.println();
 	}
 	
 	/**
@@ -71,7 +80,8 @@ public class Unit implements Fighting, UnitType {
 	 * Does the end of turn mecanisms
 	 */
 	public Unit endTurn() {
-		System.out.println("FIN DE TOUR POUR " + this);
+		System.out.println(this);
+		System.out.println(Utility.hpBar(getCurrentHp(), getFullHp()));
 		if (getCurrentHp() == 0) {
 			System.out.println(this + " explose...");
 			return null;
@@ -125,7 +135,11 @@ public class Unit implements Fighting, UnitType {
 
 	@Override
 	public String getName() {
-		return type.getName();
+		if (this.name == null) {
+			return type.getName();
+		} else {
+			return this.name;
+		}
 	}
 
 	@Override

@@ -7,15 +7,15 @@ package ch.protectator.sphinktr;
  */
 public enum Defense implements UnitType {
 	ROCKETLAUNCHER("Lanceur de missiles", 2000, 20, 80),
-	LIGHTLASER("Artillerie laser légère", 2000, 25, 100),
+	LIGHTLASER("Artillerie laser lÃ©gÃ¨re", 2000, 25, 100),
 	HEAVYLASER("Artillerie laser lourde", 8000, 100, 250),
 	GAUSSCANNON("Canon de Gauss", 35000, 200, 1100),
-	IONCANNON("Artillerie à Ions", 8000, 500, 150),
+	IONCANNON("Artillerie Ã  Ions", 8000, 500, 150),
 	PLASMATURRET("Lanceur de plasma", 100000, 300, 3000),
 	SMALLSHIELDDOME("Petit bouclier", 20000, 2000, 1),
 	LARGESHIELDDOME("Grand bouclier", 100000, 10000, 1),
 	ANTIBALLISTICMISSILES("Missile d'interception", 8000, 1, 1),
-	INTERPLANETARYMISSILES("Missiles interplanétaires", 15000, 1, 12000);
+	INTERPLANETARYMISSILES("Missiles interplanï¿½taires", 15000, 1, 12000);
 	
 	private final String name;
 	private final int structure;
