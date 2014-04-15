@@ -10,7 +10,7 @@ public class Battle {
 	private Player attacker;
 	private Player defender;
 	
-	public static int nbTurns = 20;
+	public static int nbTurns = 6;
 	
 	/**
 	 * @param attacker

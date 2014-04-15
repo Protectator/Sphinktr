@@ -5,7 +5,7 @@ package ch.protectator.sphinktr;
  * 
  * @author Kewin Dousse
  */
-public class Unit implements Fighting, UnitType {
+public class Unit implements Fighting {
 
 	private UnitType type;
 	private int currentHp;
@@ -45,9 +45,10 @@ public class Unit implements Fighting, UnitType {
 			Unit target = army.getRandomUnit();
 			attackUnit(target);
 			shouldAttack = false;
-			int rapidFire = type.getRapidfire(target);
+			int rapidFire = type.getRapidfire(target.getType());
 			if (rapidFire != 1) {
-				if (Simulation.getInstance().randomizer.nextInt(rapidFire) == 0) {
+				if (Simulation.getInstance().randomizer.nextInt(rapidFire) != 0) {
+					System.out.println("... and fires again !");
 					shouldAttack = true;
 				}
 			}
@@ -83,13 +84,13 @@ public class Unit implements Fighting, UnitType {
 		System.out.println(this);
 		System.out.println(Utility.hpBar(getCurrentHp(), getFullHp()));
 		if (getCurrentHp() == 0) {
-			System.out.println(this + " explose...");
+			System.out.println(this + " explodes...");
 			return null;
 		}
 		float percentHp = (float)getCurrentHp() / (float)getFullHp();
 		if (percentHp < 0.7) {
 			if (Simulation.getInstance().randomizer.nextFloat() > percentHp) {
-				System.out.println(this + " explose...");
+				System.out.println(this + " explodes...");
 				return null;
 			}
 		}
@@ -116,6 +117,13 @@ public class Unit implements Fighting, UnitType {
 		this.currentShield = Math.max(0, newShield);
 	}
 
+	/**
+	 * @return the type
+	 */
+	public UnitType getType() {
+		return type;
+	}
+
 	@Override
 	public int getCurrentHp() {
 		return currentHp;
@@ -133,7 +141,6 @@ public class Unit implements Fighting, UnitType {
 		return currentShield;
 	}
 
-	@Override
 	public String getName() {
 		if (this.name == null) {
 			return type.getName();
@@ -142,22 +149,18 @@ public class Unit implements Fighting, UnitType {
 		}
 	}
 
-	@Override
 	public int getStructure() {
 		return type.getStructure();
 	}
 
-	@Override
 	public int getAttack() {
 		return type.getAttack();
 	}
 
-	@Override
 	public int getShield() {
 		return type.getShield();
 	}
 
-	@Override
 	public int getRapidfire(UnitType unit) {
 		return type.getRapidfire(unit);
 	}
