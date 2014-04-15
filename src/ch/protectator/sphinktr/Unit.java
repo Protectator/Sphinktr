@@ -73,14 +73,14 @@ public class Unit implements Fighting, UnitType {
 	public Unit endTurn() {
 		System.out.println("FIN DE TOUR POUR " + this);
 		if (getCurrentHp() == 0) {
+			System.out.println(this + " explose...");
 			return null;
 		}
 		float percentHp = (float)getCurrentHp() / (float)getFullHp();
 		if (percentHp < 0.7) {
 			if (Simulation.getInstance().randomizer.nextFloat() > percentHp) {
-				if (getCurrentHp() == 0 && getCurrentShield() == 0) {
-					return null;
-				}
+				System.out.println(this + " explose...");
+				return null;
 			}
 		}
 		this.setCurrentShield(this.type.getShield());

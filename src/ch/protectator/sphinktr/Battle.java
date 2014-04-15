@@ -23,19 +23,22 @@ public class Battle {
 		for (int turn = 1; turn <= 6; turn++) {
 			System.out.println("===== New Turn (" + turn + ") =====");
 			turn();
+			
+			if (attacker.getArmy().getUnits().isEmpty()) {
+				if (defender.getArmy().getUnits().isEmpty()) {
+					System.out.println("Les deux armées sont détruites (???)");
+				}
+				System.out.println("Le défenseur gagne la bataille");
+			}
+			if (defender.getArmy().getUnits().isEmpty()) {
+				System.out.println("L'attaquand gagne la bataille.");
+			}
 		}
+		System.out.println("Le combat est terminé, l'attaquant se retire.");
 	}
 	
 	public void turn() {
 		int attackerArmySize = attacker.getArmy().getUnits().size();
-		/*
-		System.out.println("Attacker : " + attacker);
-		System.out.println("Attacker army : " + attacker.getArmy());
-		System.out.println("Attacker units : " + attacker.getArmy().getUnits());
-		System.out.println("Defender : " + defender);
-		System.out.println("Defender army : " + defender.getArmy());
-		System.out.println("Defender units :" + defender.getArmy().getUnits());
-		*/
 		for (int currentUnit = 0; currentUnit < attackerArmySize; currentUnit++) {
 			attacker.getArmy().getUnits().get(currentUnit).attackTurn(defender.getArmy());
 		}
