@@ -5,12 +5,33 @@ package ch.protectator.sphinktr;
  * 
  * @author Kewin Dousse
  */
-public interface Unit {
+public class Unit implements UnitType {
 
-	public String getName();
-	public int getStructure();
-	public int getAttack();
-	public int getShield();
-	public int getRapidfire(Unit unit);
+	private UnitType type;
+
+	@Override
+	public String getName() {
+		return type.getName();
+	}
+
+	@Override
+	public int getStructure() {
+		return type.getStructure();
+	}
+
+	@Override
+	public int getAttack() {
+		return type.getAttack();
+	}
+
+	@Override
+	public int getShield() {
+		return type.getShield();
+	}
+
+	@Override
+	public int getRapidfire(UnitType unit) {
+		return type.getRapidfire(unit);
+	}
 	
 }

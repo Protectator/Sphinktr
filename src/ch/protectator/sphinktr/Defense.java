@@ -5,7 +5,7 @@ package ch.protectator.sphinktr;
  * 
  * @author Kewin Dousse
  */
-public enum Defense implements Unit {
+public enum Defense implements UnitType {
 	ROCKETLAUNCHER("Lanceur de missiles", 2000, 20, 80),
 	LIGHTLASER("Artillerie laser légère", 2000, 25, 100),
 	HEAVYLASER("Artillerie laser lourde", 8000, 100, 250),
@@ -63,7 +63,7 @@ public enum Defense implements Unit {
 	/**
 	 * @return the rapidFire
 	 */
-	public int getRapidfire(Unit unit) {
+	public int getRapidfire(UnitType unit) {
 		return 1; // Defenses doesn't have Rapidfire against anyone.
 	}
 
